@@ -28,15 +28,15 @@ export default function Login () {
                                
                             >
                             <div className="sign-in-form">
-                                <h2 className="title1">Hai</h2><br/>
+                                <h2 className="title2">Hai</h2><br/>
                                 <h2 className="title">Selamat Datang</h2> <br /><br />
                                 <h6>Username</h6>
                                 <Form.Item name="username" className="input-field" >
-                                    <Input />
+                                    <input type="text" placeholder="masukkan username anda" />
                                 </Form.Item>
                                 <h6>Password</h6>
                                 <Form.Item name="password" className="input-field" style={{width : 350}}>
-                                    <input type="password"  />
+                                    <input type="password" placeholder="masukkan password anda" />
                                 </Form.Item>
 
                                 <Form.Item>
@@ -47,22 +47,18 @@ export default function Login () {
                     </div>
                              
                 </div>
-                         <div className="panels-container">
-                             <div className="panel left-panel">
-                                 <div className="content">
-                                     <h2 className="title1">Silahkan Mendaftar</h2>
-                                     <p>Buat akun sekarang gratis dan cepat</p>
-                                     <Link to="/register">
-                                        <Button className="btn transparent">Daftar</Button>
-                                     </Link>
-                                 </div>
-                                 {/* <img src="../img/login.svg" alt="" className="image" /> */}
-                                 <img src={imagelogin} alt="" className="image" />
-                             </div>
-                             <div className="panel right-panel">
-                                 <div></div>
-                             </div>
-                         </div>               
+                <div className="panels-container">
+                    <div className="panel left-panel">
+                        <div className="content">
+                            <h3 className="title1">Silahkan Mendaftar</h3>
+                            <p>Buat akun sekarang gratis dan cepat</p>
+                            <Link to="/register">
+                            <button className="btn-kiri"> Daftar </button>
+                            </Link>
+                        </div><br /><br />
+                        <img src={imagelogin} alt="" className="img-login" />
+                    </div>
+                </div>               
 
                 
             </div>
