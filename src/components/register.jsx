@@ -1,77 +1,131 @@
-import { Form, Input, Button, Dropdown, Select, DatePicker, Upload} from "antd";
+import { Form, Button, Select, Input } from "antd";
 import { useDispatch } from "react-redux";
 import { post_register } from "../redux/action/index";
+import imageregister from "../img/registerimg.svg"
+// import "../style/register.css"
+import "../style/login.css"
 //hiraukan
 import { Link, useHistory } from "react-router-dom";
-const { Option } = Select;
 
+export default function Register () {
+    const dispatch = useDispatch()
 
-const Register = () => {
-  const dispatch = useDispatch();
-  //hiraukan
-  const history = useHistory();
-  
-  const register = (values) => {
-    dispatch(post_register(values, history));
-  };
+    const history = useHistory()
+    const register = (values) => {
+        dispatch (post_register (values,history))
+    }
 
-  return (
-    <div>
-      <Form
-        name="normal_register"
-        initialValues={{
-          remember: true,
-        }}
-        onFinish={register}
-        style={{ width: "79%", marginTop: 50, marginLeft: 30 }}
-        size="large"
-      >
-        <Form.Item label="Username" name="username">
-          <Input placeholder="Select a option and change input text above" />
-        </Form.Item>
+    return (
+        <>
+                <div className="biru">
+                    <div className="forms-container">
+                        <div className="register">
+                            <Form
+                                name="normal_register"
+                                initialValues={{
+                                    remember: true,
+                                }}
+                                onFinish={register}
+                                style={{ width: "79%", marginTop: 50, marginLeft: 400 }}
+                                size="large"
+                                >
+                                    <div className="sign-up-from">
+                                         <h2 class="title">Daftar Sekarang</h2> <br />
+                                        <h6 htmlFor="">Username</h6>
+                                        <Form.Item 
+                                            name="username" 
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500, marginTop : -3}} 
+                                            rules={[{ required: true }]} 
+                                        >
+                                            <input type="text" placeholder="Masukkan Username Anda" />
+                                        </Form.Item>
 
-        <Form.Item label="Password" name="password">
-          <Input.Password placeholder="Select a option and change input text above" />
-        </Form.Item>
+                                        <h6 htmlFor="">Password</h6>
+                                        <Form.Item 
+                                            name="password" 
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500, marginTop : -3}} 
+                                            rules={[{ required: true }]} 
+                                        >
+                                            <input type="password" placeholder="Masukkan Password Anda" />
+                                        </Form.Item>
 
-        <Form.Item label="Email" name="email">
-          <Input placeholder="Select a option and change input text above" />
-        </Form.Item>
+                                        <h6 htmlFor="">Email</h6>
+                                        <Form.Item 
+                                            name="email" 
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500, marginTop : -3}} 
+                                            rules={[{ required: true }]} 
+                                        >
+                                            <input type="text" placeholder="Masukkan Email Anda" />
+                                        </Form.Item>
 
-        <Form.Item name="jenis_kelamin" label="jenis kelamin" rules={[{ required: true }]}>
-            <Select
-            placeholder="Select a option and change input text above"
-            // onChange={onJenisKelaminChange}
-            allowClear
-            >
-            <Option value="laki-laki">laki-laki</Option>
-            <Option value="perempuan">perempuan</Option>
-            
-            </Select>
-        </Form.Item>
-        
-        <Form.Item label="tanggal lahir" name="tanggal_lahir">
-            <DatePicker />
-        </Form.Item>
+                                        <h6 htmlFor="">Jenis Kelamin</h6>
+                                        <Form.Item name="jenis_kelamin" rules={[{ required: true }]}>
+                                            <select
+                                            placeholder="Pilih Jenis Kelamin Anda"
+                                            // onChange={onJenisKelaminChange}
+                                            allowClear
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500, marginTop : -3}}
+                                            rules={[{ required: true }]}
+                                            >
+                                            <option value="laki-laki">Laki - Laki</option>
+                                            <option value="perempuan">Perempuan</option>
+                                            
+                                            </select>
+                                        </Form.Item>
 
-        <Form.Item
-            name="foto"
-            label="Upload"
-            // getValueFromEvent={normFile}
-            extra="foto profil"
-        >
-            <input type='file' name="foto" />
-        </Form.Item>
+                                        <h6 htmlFor="">Tanggal Lahir</h6>
+                                        <Form.Item 
+                                            name="tanggal_lahir" 
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500, marginTop : -3}} 
+                                            rules={[{ required: true }]} 
+                                        >
+                                            
+                                            <input type="date" />
+                                        </Form.Item>
 
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
+                                        <h6 htmlFor="">Foto Profil</h6>
+                                        <Form.Item 
+                                            name="foto" 
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500}} 
+                                            rules={[{ required: true }]} 
+                                        >
+                                            <input type='file' name="foto" className="input-field"/>
+                                        </Form.Item>
 
-    </div>
-  );
-};
-
-export default Register;
+                                        <Form.Item>
+                                            <Link to= "/home">
+                                            <button className="btn-masuk"> Submit </button>
+                                            </Link>
+                                        </Form.Item>
+                                    </div>
+                                
+                            </Form>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div className="panels-container">
+                        <div className="panel left-panel">
+                            <div className="content">
+                                <h3 className="title1">Sudah Punya Akun?</h3> <br />
+                                <Link to="/login">
+                                <button className="btn-kiri"> Masuk </button>
+                                </Link>
+                            </div>
+                        
+                            <img src={imageregister} alt="" className="image" />
+                        </div>
+                    
+                    </div> 
+                
+               
+           
+        </>
+    )
+}
