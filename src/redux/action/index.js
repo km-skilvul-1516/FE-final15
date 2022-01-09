@@ -6,8 +6,8 @@ export const post_login = (data, history) => {
         axios 
             .post("https://teslah-final.herokuapp.com/user/login", data)
             .then((res)=> {
-                if (res.data.msg !== "salah password") {}
-                // console.log(res)
+                // if (res.data.msg !== "salah password") {}
+                console.log(res)
             })
     }
 }
