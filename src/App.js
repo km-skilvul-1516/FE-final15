@@ -3,15 +3,15 @@ import Login from './components/login';
 import Register from './components/register'
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './components/home/Home';
-import Navbar from './Components/Navbar';
-import Header from './Components/Header';
-import About from './Components/About';
-import Testi from './Components/Testi';
-import Product from './Components/Products'
-import Contact from './Components/Contact';
-import Feature from './Components/Feature';
-import Reason from './Components/Reason';
-import Footer from './Components/Footer';
+import Navbar from './components/Navbar';
+import Header from './components/Header';
+import About from './components/About';
+import Testi from './components/Testi';
+import Product from './components/Products'
+import Contact from './components/Contact';
+import Feature from './components/Feature';
+import Reason from './components/Reason';
+import Footer from './components/Footer';
 
 function App() {
   return (
