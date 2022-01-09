@@ -1,70 +1,131 @@
-import { Form } from "react-bootstrap";
-import { FaUserAlt } from "react-icons/fa";
+import { Form, Button, Select, Input } from "antd";
+import { useDispatch } from "react-redux";
+import { post_register } from "../redux/action/index";
+import imageregister from "../img/registerimg.svg"
+// import "../style/register.css"
 import "../style/login.css"
+//hiraukan
+import { Link, useHistory } from "react-router-dom";
 
 export default function Register () {
+    const dispatch = useDispatch()
+
+    const history = useHistory()
+    const register = (values) => {
+        dispatch (post_register (values,history))
+    }
+
     return (
         <>
-            <div className="biru">
-                <div className="forms-container">
-                    <div className="signin-signup">   
-                        <div className="sign-up-form">
-                            <Form>
-                                <h1 className="title">Daftar Sekarang</h1>
-                                <h5 className="done"> Sudah Punya Akun?</h5>
-                                <label htmlFor="lname">Username</label>
-                                <div className="input-field">
-                                    <div className="fa-user"> <FaUserAlt></FaUserAlt> </div>
-                                    <input type="text" placeholder="masukkan username anda" required />
-                                </div>
-                                <label htmlFor="lname">Password</label>
-                                <div className="input-field">
-                                    <div className="fa-user"> <FaUserAlt></FaUserAlt> </div>
-                                    <input type="password" placeholder="masukkan password anda" required />
-                                </div>
-                                {/* <label htmlFor="lname">email</label>
-                                <div className="input-field">
-                                    <div className="fa-user"> <FaUserAlt></FaUserAlt> </div>
-                                    <input type="email" placeholder="masukkan email anda" required />
-                                </div>
-                                <label htmlFor="lname">Username</label>
-                                <div className="input-field">
-                                    <div className="fa-user"> <FaUserAlt></FaUserAlt> </div>
-                                    <input type="text" placeholder="masukkan username anda" required />
-                                </div> */}
-                                <label htmlFor="lname">Jenis Kelamin</label>
-                                <div className="input-field">
-                                    <div className="fa-user"> <FaUserAlt></FaUserAlt> </div>
-                                    <select name="" id="">
-                                        <option value="Laki-Laki">Laki-Laki</option>
-                                        <option value="Perempuan">Perempuan</option>
-                                    </select>
-                                </div>
-                                <label htmlFor="lname">Tanggal Lahir</label>
-                                <div className="input-field">
-                                    <div className="fa-user"> <FaUserAlt></FaUserAlt> </div>
-                                    <input type="date" placeholder="masukkan tanggal lahir anda" required />
-                                </div>
-                                <label htmlFor="lname">Foto</label>
-                                <div className="input-field">
-                                    <div className="fa-user"> <FaUserAlt></FaUserAlt> </div>
-                                    <input type="file" placeholder="masukkan foto anda" required />
-                                </div>
-                                <label htmlFor="lname">Masuk Sebagai</label>
-                                <div className="input-field">
-                                    <div className="fa-user"> <FaUserAlt></FaUserAlt> </div>
-                                    <select name="" id="">
-                                        <option value="user">Pengguna Biasa</option>
-                                        <option value="psikolog">Psikolog</option>
-                                    </select>
-                                </div>
+                <div className="biru">
+                    <div className="forms-container">
+                        <div className="register">
+                            <Form
+                                name="normal_register"
+                                initialValues={{
+                                    remember: true,
+                                }}
+                                onFinish={register}
+                                style={{ width: "79%", marginTop: 50, marginLeft: 400 }}
+                                size="large"
+                                >
+                                    <div className="sign-up-from">
+                                         <h2 class="title">Daftar Sekarang</h2> <br />
+                                        <h6 htmlFor="">Username</h6>
+                                        <Form.Item 
+                                            name="username" 
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500, marginTop : -3}} 
+                                            rules={[{ required: true }]} 
+                                        >
+                                            <input type="text" placeholder="Masukkan Username Anda" />
+                                        </Form.Item>
+
+                                        <h6 htmlFor="">Password</h6>
+                                        <Form.Item 
+                                            name="password" 
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500, marginTop : -3}} 
+                                            rules={[{ required: true }]} 
+                                        >
+                                            <input type="password" placeholder="Masukkan Password Anda" />
+                                        </Form.Item>
+
+                                        <h6 htmlFor="">Email</h6>
+                                        <Form.Item 
+                                            name="email" 
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500, marginTop : -3}} 
+                                            rules={[{ required: true }]} 
+                                        >
+                                            <input type="text" placeholder="Masukkan Email Anda" />
+                                        </Form.Item>
+
+                                        <h6 htmlFor="">Jenis Kelamin</h6>
+                                        <Form.Item name="jenis_kelamin" rules={[{ required: true }]}>
+                                            <select
+                                            placeholder="Pilih Jenis Kelamin Anda"
+                                            // onChange={onJenisKelaminChange}
+                                            allowClear
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500, marginTop : -3}}
+                                            rules={[{ required: true }]}
+                                            >
+                                            <option value="laki-laki">Laki - Laki</option>
+                                            <option value="perempuan">Perempuan</option>
+                                            
+                                            </select>
+                                        </Form.Item>
+
+                                        <h6 htmlFor="">Tanggal Lahir</h6>
+                                        <Form.Item 
+                                            name="tanggal_lahir" 
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500, marginTop : -3}} 
+                                            rules={[{ required: true }]} 
+                                        >
+                                            
+                                            <input type="date" />
+                                        </Form.Item>
+
+                                        <h6 htmlFor="">Foto Profil</h6>
+                                        <Form.Item 
+                                            name="foto" 
+                                            className="input-field"
+                                            style={{marginLeft : 120, width : 500}} 
+                                            rules={[{ required: true }]} 
+                                        >
+                                            <input type='file' name="foto" className="input-field"/>
+                                        </Form.Item>
+
+                                        <Form.Item>
+                                            <Link to= "/home">
+                                            <button className="btn-masuk"> Submit </button>
+                                            </Link>
+                                        </Form.Item>
+                                    </div>
+                                
                             </Form>
                         </div>
-                        
                     </div>
+                    
                 </div>
-            </div>
-        
+                <div className="panels-container">
+                        <div className="panel left-panel">
+                            <div className="content">
+                                <h3 className="title1">Sudah Punya Akun?</h3> <br />
+                                <Link to="/login">
+                                <button className="btn-kiri"> Masuk </button>
+                                </Link>
+                            </div>
+                        
+                            <img src={imageregister} alt="" className="image" />
+                        </div>
+                    
+                    </div> 
+                
+               
+           
         </>
     )
 }
