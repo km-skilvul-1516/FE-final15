@@ -13,8 +13,6 @@ import Feature from './Components/Feature';
 import Reason from './Components/Reason';
 import Footer from './Components/Footer';
 
-
-
 function App() {
   return (
     <Router>
