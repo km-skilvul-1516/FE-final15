@@ -8,18 +8,18 @@ import Feature from './Feature';
 import Reason from './Reason';
 import Footer from './Footer';
 import About from './About'
-function landingpage() {
+function Landingpage() {
         return (
-          <>
-        <Navbar/>
-        <Header/>
-        <Feature/>
-        <Reason/>
-        <About/>
-        <Testi/>
-        <Contact/> 
-        <Footer/>
-          </>
+          <div>
+            <Navbar/>
+            <Header/>
+            <Feature/>
+            <Reason/>
+            <About/>
+            <Testi/>
+            <Contact/> 
+            <Footer/>
+          </div>
         );
       }
    <>
@@ -27,4 +27,4 @@ function landingpage() {
   </>
          
 
-export default landingpage;
+export default Landingpage;
