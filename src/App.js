@@ -3,10 +3,13 @@ import Login from './components/login';
 import Register from './components/register'
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import Landingpage from './components/Landingpage'
+<<<<<<< HEAD
 import Home from './components/home/Home'
 import StartQuiz from './components/quiz/StartQuiz';
 import Soal from './components/quiz/Soal'
 
+=======
+>>>>>>> 6a78148bd5e61c0cdc13cb75bb1a5bef24b49db2
 
 function App() {
   return (
