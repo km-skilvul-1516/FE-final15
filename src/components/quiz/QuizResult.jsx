@@ -50,3 +50,5 @@ export const QuizResult = () => {
         </div>
     )
 };
+
+export default QuizResult;
