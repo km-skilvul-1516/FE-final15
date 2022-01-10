@@ -3,7 +3,7 @@ import Login from './components/login';
 import Register from './components/register'
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import Landingpage from './components/Landingpage'
-import Home from './components/home/Home'
+
 function App() {
   return (
     <Router>
