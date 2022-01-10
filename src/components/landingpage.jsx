@@ -10,7 +10,7 @@ import Footer from './Footer';
 import About from './About'
 function Landingpage() {
         return (
-          <>
+          <div>
             <Navbar/>
             <Header/>
             <Feature/>
@@ -19,7 +19,7 @@ function Landingpage() {
             <Testi/>
             <Contact/> 
             <Footer/>
-          </>
+          </div>
         );
       }
    <>
