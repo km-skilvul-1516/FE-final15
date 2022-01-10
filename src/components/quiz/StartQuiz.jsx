@@ -27,3 +27,5 @@ export const StartQuiz = () => {
         </div>
     )
 }
+
+export default StartQuiz;
