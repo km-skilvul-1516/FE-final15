@@ -37,3 +37,17 @@ export const post_register = (data, history) => {
             })
     }
 }
+
+export const get_quiz = () => {
+  return (dispatch) => {
+    axios
+      .get("https://teslah-final.herokuapp.com/quis/getAllQuiz")
+      .then((res) => {
+        dispatch({
+          type: "PUT_DATA",
+          key: "soal",
+          data: res.data.result,
+        });
+      });
+  };
+};
