@@ -28,7 +28,7 @@ export default function Login () {
                                
                             >
                             <div className="sign-in-form">
-                                <h2 className="title2">Halo</h2><br/>
+                                <h2 className="title2">Hai</h2><br/>
                                 <h2 className="title">Selamat Datang</h2> <br /><br />
                                 <h6>Username</h6>
                                 <Form.Item name="username" className="input-field" >
