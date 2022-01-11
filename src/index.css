@@ -294,6 +294,29 @@ title{
     display: flex;
     flex-direction: column;
 }
+.tutu{
+     padding-top: 34px;
+    height: 150px;
+}
+.a-boxly{
+    box-shadow: 3px 1px 12px;
+    width:330px;
+    height: 100%;
+    margin: 30px;
+    padding-top: 2px;
+    padding-right:30px;
+    padding-left: 30px;
+    padding-bottom: 29px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+    position: relative;
+    color:#072950;
+    display: flex;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
 .a-boxi{
     margin-top: 50px;
     width:250px;
