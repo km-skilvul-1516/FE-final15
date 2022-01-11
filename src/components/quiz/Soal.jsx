@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Input, Button, Dropdown, Radio, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { get_quiz } from "../../redux/action/index";
+import { get_quiz, post_quiz } from "../../redux/action/index";
 //hiraukan
 import { Link, useHistory } from "react-router-dom";
 import '../quiz/quiz.css'
 
 export const Soal = () => {
     const dispatch = useDispatch();
-    const [countSoal, setCount] = useState(0); 
+    const count = 0;
+    const listJawaban = [];
+    // const [countSoal, setCount] = useState(0); 
 
     useEffect(() => {
         dispatch(get_quiz());
@@ -17,8 +19,14 @@ export const Soal = () => {
     const history = useHistory();
     const mainState = useSelector(state => state?.main)
     const soal = mainState?.soal
-
-    console.log('iniSoal', soal);
+    const submit = (values) => {
+        dispatch(post_quiz(listJawaban, history));
+        console.log(values)
+    }
+    const logger = (changedValues) => {
+        console.log(changedValues)
+        listJawaban.push(changedValues)
+    }
 
     return (
         <div>
@@ -26,17 +34,19 @@ export const Soal = () => {
                 <h2> Tes Tingkat Keparahan Stress </h2>
             </div>
             <div className='card'>
+                <Form name='quiz' onFinish={submit} onValuesChange={logger}>
                 {
                     !soal ?
                     null
                     :
                     soal.map((soal) => {
                     return (
-                        soal.isiQuiz.map((isiSoal) => {
-                            console.log(isiSoal)
+                        soal.isiQuiz.map((isiSoal, index) => {
+                            // count = count + 1
+                            // setCount(countSoal + 1)
                             return (
                                 <div className='card-soal'>
-                                    <Form.Item name={"soal" + countSoal} label={isiSoal.soal}>
+                                    <Form.Item name={"soal" + index} label={isiSoal.soal}>
                                     <div className='pilihan-jawaban'>
                                     <Radio.Group size="small" buttonStyle='outline'>
                                         <Space direction="horizontal">
@@ -53,19 +63,18 @@ export const Soal = () => {
                         })
                     )
                 }
-                )}
-                </div>
-
+            )}
             <div className='btn-submit'>
                 <Form.Item>
-                    <Link to ='/result'>
-                        <button className='btn-kirim'>
+                        <Button type='primary' htmlType='submit' className='btn-kirim'>
                             Kirim jawaban
-                        </button>
-                    </Link>
+                        </Button>
                 </Form.Item>
             </div>
-        </div>
+            </Form>
+         </div>    
+    </div>
+        
     );
 };
 
