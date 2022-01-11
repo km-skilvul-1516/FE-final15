@@ -90,12 +90,11 @@ nav .menu-btn,
 	transform: translate(-25%,-55%);
 }
 .header-reason{
-	width: 80%;
+	width: -80%;
 	position: absolute;
-    left: 32%;
     color:black;
     font-size: 18px;
-    margin-left: 600px;
+    margin-left: 850px;
     margin-top: 50px;
     top: 45%;
     text-align: left;
