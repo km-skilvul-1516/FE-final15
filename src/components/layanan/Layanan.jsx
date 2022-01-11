@@ -17,68 +17,140 @@
 
 // export default Layanan;
 
+// import React from 'react'
+// import { useState, useEffect } from 'react'
+// import axios from 'axios';
+// import Navbar from '../Navbar';
+
+
+// function Layanan() {
+//     const [APIData, setAPIData] = useState([]);
+//     useEffect(() => {
+//         axios.get("https://teslah-final.herokuapp.com/layanan/getAllLayanan")
+//             .then((response) => {
+//                 console.log('ini dari useeffect array',response.data.result)
+//                 console.log('ini dari useeffect obj',response.data)
+//                 setAPIData(response.data.result);
+//             })
+//     },[])
+//     console.log(APIData)
+
+//     return (
+//      <div>
+//             <div className="List-Paket">
+//             <Navbar/>
+//             <br/>
+//             <br/>
+//                 <h2>Paket Layanan</h2>
+//             </div>
+//             <div className="item">
+//             {
+//             !APIData ? null
+//             :
+//             APIData.map((post) =>
+//             {
+                // return(
+                    // <div>
+                    // <div className='a-box'>
+                    //     <h1>{post.namaPaket}</h1> 
+                    //     <p>--------------------------------</p>
+                    //     <h3>{post.hargaLayanan}</h3> 
+                    //  </div>
+                    //  </div>        
+                
+                   
+                // )
+//                 <div className="App">
+//       <h1>Semua layanan</h1>
+//       {APIData ? (
+//         <ul>
+//           {APIData.map((item) => (
+//             <>
+//               <li key={item._id}>{item.namaPaket}</li>
+//               <li>{item.hargaLayanan}</li>
+//               <li>{item.kuotaLayanan}</li>
+//               <li>
+//                 <>
+//                   {item.deskripsiPaket &&
+//                     item.deskripsiPaket.map((desc) => (
+//                       <div>
+//                         <li key={desc._id}>{desc.sesiIndividual}</li>
+//                         <li>{desc.sesiIndividual}</li>
+//                         <li>{desc.sesiGroup}</li>
+//                         <li>{desc.konsulChat}</li>
+//                       </div>
+//                     ))}
+//                 </>
+//               </li>
+//             </>
+//           ))}
+//         </ul>
+//       ) : null}
+//     </div>
+//             }   
+           
+//             )
+//         }
+//         </div>
+//     </div>
+//     )
+// }
+
+
+// export default Layanan;
+
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import Navbar from '../Navbar';
-
-
-function Layanan() {
-    const [APIData, setAPIData] = useState([]);
-    useEffect(() => {
-        axios.get("https://teslah-final.herokuapp.com/layanan/getAllLayanan")
-            .then((response) => {
-                console.log('ini dari useeffect array',response.data.result)
-                console.log('ini dari useeffect obj',response.data)
-                setAPIData(response.data.result);
-            })
-    },[])
-    console.log(APIData)
-
+export default function Layanan() {
+    const [items, setItems] = React.useState([]);
+  
+    React.useEffect(() => {
+      async function getAllService() {
+        const { result } = await window
+          .fetch("https://teslah-final.herokuapp.com/layanan/getAllLayanan")
+          .then((r) => r.json());
+        setItems(result);
+      }
+  
+      getAllService();
+    }, []);
+  
     return (
-     <div>
-            <div className="List-Paket">
-            <Navbar/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-
-                <h2>Paket Layanan</h2>
-            </div>
-            <div className="item">
-            {
-            !APIData ? null
-            :
-            APIData.map((post) =>
-            {
-                return(
-                    <div id='products'>
-                    <div id='testi'>
-                    <div className='a-container'>
-                    <div className='a-box'>
-                         <div className="testi">
-                         <div className='a-b-text'>
-                                {post.namaPaket}
-                                {post.deskripsiLayanan}
-                                {post.hargaLayanan}
-                            </div>
+      <div className="App">
+          <Navbar/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        <h1>Semua layanan</h1>
+        {items ? (
+          <ul>
+            {items.map((item) => (
+              <>
+                <li key={item._id}>{item.namaPaket}</li>
+                <li>{item.hargaLayanan}</li>
+                <li>{item.kuotaLayanan}</li>
+                <li>
+                  <>
+                    {item.deskripsiPaket &&
+                      item.deskripsiPaket.map((desc) => (
+                        <div>
+                          <li key={desc._id}>{desc.sesiIndividual}</li>
+                          <li>{desc.sesiIndividual}</li>
+                          <li>{desc.sesiGroup}</li>
+                          <li>{desc.konsulChat}</li>
                         </div>
-                        </div>
-                    </div>
-                    </div>
-                    </div>
-                
-                   ) 
-            }   
-           
-            )
-        }
-        </div>
-    </div>
-    )
-}
-
-
-export default Layanan;
+                      ))}
+                  </>
+                </li>
+              </>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    );
+  }
+  
