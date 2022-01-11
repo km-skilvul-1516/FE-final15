@@ -8,6 +8,7 @@ import Soal from './components/quiz/Soal'
 import Layanan from './components/layanan/Layanan'
 import FormLayananA from './components/layanan/FormLayananA';
 import QuizResult from './components/quiz/QuizResult'
+import Footer from './components/Footer';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route exact path='/result' component={QuizResult} />
         <Route exact path="/layanan" component={Layanan} />
         <Route exact path="/layananA" component ={FormLayananA}/>
+        <Route exact path="/hubungi" components = {Footer}/>
       </div>
 
     </Router>

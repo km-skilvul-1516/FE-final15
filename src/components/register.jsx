@@ -99,7 +99,7 @@ export default function Register () {
                                         </Form.Item>
 
                                         <Form.Item>
-                                            <Link to= "/home">
+                                            <Link to= "/">
                                             <button className="btn-masuk"> Submit </button>
                                             </Link>
                                         </Form.Item>

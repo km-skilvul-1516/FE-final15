@@ -1,0 +1,10 @@
+.latar{
+    background-color : violet;
+    width : 70%;
+    margin-left : 200px;
+    border-radius : 10px;
+}
+
+.item {
+    margin-left : 10%;
+}

@@ -12,7 +12,7 @@ export const post_login = (data, history) => {
                     ls.setItem('token', res.data.token)
                     ls.setItem('email', res.data.result.email)
                     ls.setItem('username', res.data.result.username)
-                    window.location.href = 'http://localhost:3000'
+                    window.location.href = '/'
                 } else if (role === "psikolog") {
                     ls.setItem('token', res.data.token)
                     ls.setItem('email', res.data.result.email)
