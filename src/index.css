@@ -5,7 +5,7 @@
 body{
     margin:0px;
     padding: 0px;
-    background-color:white;
+    background-color:rgb(150, 142, 142);
     font-family:'Inter', 'Sora';
 }
 *{
@@ -14,7 +14,6 @@ body{
 
 ul{
     list-style: none;
-    text-decoration : none;
 }
 a{
     text-decoration: none;
@@ -317,6 +316,37 @@ title{
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+}
+.a-boxp{
+    box-shadow: 3px 1px 12px;
+    width:330px;
+    height: 100%;
+    margin: 30px;
+    padding-top: 2px;
+    padding-right:30px;
+    padding-left: 30px;
+    padding-bottom: 29px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+    position: relative;
+    color:#072950;
+    display: flex;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.center{
+    padding-top: 30px;
+    text-align: left;
+}
+.poto img{
+    width:200px;
+    height:200px;
+    border-radius: 100px;
+}
+.listpaket{
+    margin-top: 40px;
 }
 .a-boxi{
     margin-top: 50px;
