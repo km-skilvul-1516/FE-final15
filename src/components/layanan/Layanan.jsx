@@ -1,156 +1,68 @@
-// import React from 'react';
-// import Productbox from '../Productbox';
-// import logo1 from '../../images/logo1.png';
-// import Navbar from '../Navbar';
-// function Layanan() {
-//     return (
-        // <div id='products'>
-        //     <Navbar/>
-        //     <h1>Layanan Konseling</h1>
-        //     <div className='a-container'>
-        //         <Productbox image={logo1} title="Reguler"/>
-        //         <Productbox image={logo1} title="Silver"/>
-        //         <Productbox image={logo1} title="Platinum"/>
-        //     </div>
-        // </div>    )}
-
-
-// export default Layanan;
-
-// import React from 'react'
-// import { useState, useEffect } from 'react'
-// import axios from 'axios';
-// import Navbar from '../Navbar';
-
-
-// function Layanan() {
-//     const [APIData, setAPIData] = useState([]);
-//     useEffect(() => {
-//         axios.get("https://teslah-final.herokuapp.com/layanan/getAllLayanan")
-//             .then((response) => {
-//                 console.log('ini dari useeffect array',response.data.result)
-//                 console.log('ini dari useeffect obj',response.data)
-//                 setAPIData(response.data.result);
-//             })
-//     },[])
-//     console.log(APIData)
-
-//     return (
-//      <div>
-//             <div className="List-Paket">
-//             <Navbar/>
-//             <br/>
-//             <br/>
-//                 <h2>Paket Layanan</h2>
-//             </div>
-//             <div className="item">
-//             {
-//             !APIData ? null
-//             :
-//             APIData.map((post) =>
-//             {
-                // return(
-                    // <div>
-                    // <div className='a-box'>
-                    //     <h1>{post.namaPaket}</h1> 
-                    //     <p>--------------------------------</p>
-                    //     <h3>{post.hargaLayanan}</h3> 
-                    //  </div>
-                    //  </div>        
-                
-                   
-                // )
-//                 <div className="App">
-//       <h1>Semua layanan</h1>
-//       {APIData ? (
-//         <ul>
-//           {APIData.map((item) => (
-//             <>
-//               <li key={item._id}>{item.namaPaket}</li>
-//               <li>{item.hargaLayanan}</li>
-//               <li>{item.kuotaLayanan}</li>
-//               <li>
-//                 <>
-//                   {item.deskripsiPaket &&
-//                     item.deskripsiPaket.map((desc) => (
-//                       <div>
-//                         <li key={desc._id}>{desc.sesiIndividual}</li>
-//                         <li>{desc.sesiIndividual}</li>
-//                         <li>{desc.sesiGroup}</li>
-//                         <li>{desc.konsulChat}</li>
-//                       </div>
-//                     ))}
-//                 </>
-//               </li>
-//             </>
-//           ))}
-//         </ul>
-//       ) : null}
-//     </div>
-//             }   
-           
-//             )
-//         }
-//         </div>
-//     </div>
-//     )
-// }
-
-
-// export default Layanan;
-
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
-import Navbar from '../Navbar';
-export default function Layanan() {
-    const [items, setItems] = React.useState([]);
-  
-    React.useEffect(() => {
-      async function getAllService() {
-        const { result } = await window
-          .fetch("https://teslah-final.herokuapp.com/layanan/getAllLayanan")
-          .then((r) => r.json());
-        setItems(result);
-      }
-  
-      getAllService();
-    }, []);
-  
+import Navbar from '../Navbar'
+import Logo1 from '../../images/logo1.png';
+
+function Layanan() {
+    const [APIData, setAPIData] = useState([]);
+    useEffect(() => {
+        axios.get("https://teslah-final.herokuapp.com/layanan/getAllLayanan")
+            .then((response) => {
+                console.log('ini dari useeffect array',response.data.result)
+                console.log('ini dari useeffect obj',response.data)
+                setAPIData(response.data.result);
+            })
+    },[])
+    console.log(APIData)
+
     return (
-      <div className="App">
+        <div>
           <Navbar/>
           <br/>
           <br/>
           <br/>
           <br/>
-          <br/>
-        <h1>Semua layanan</h1>
-        {items ? (
-          <ul>
-            {items.map((item) => (
-              <>
-                <li key={item._id}>{item.namaPaket}</li>
-                <li>{item.hargaLayanan}</li>
-                <li>{item.kuotaLayanan}</li>
-                <li>
-                  <>
-                    {item.deskripsiPaket &&
-                      item.deskripsiPaket.map((desc) => (
-                        <div>
-                          <li key={desc._id}>{desc.sesiIndividual}</li>
-                          <li>{desc.sesiIndividual}</li>
-                          <li>{desc.sesiGroup}</li>
-                          <li>{desc.konsulChat}</li>
+            <div className="List-Paket">
+                <h2>Paket Layanan</h2>
+            </div>
+            <div className="a-container">
+            {
+            !APIData ? null
+            :
+            APIData.map((post) =>
+            {
+                return(
+                    <div>
+                    <div>
+                            <div className = "a-boxly">
+                            <img src={Logo1} alt=''className='tutu'/>
+                                <h1>{post.namaPaket}</h1>
+                                <p>--------------------------------</p>
+                                <h6>{post.sesiIndividual} Sesi individual Online meeting</h6>
+                                <br/>
+                                <h6>{post.konsultasi} Konsultasi via chat WA</h6>
+                                <br/>
+                                <br/>
+                                <h3>Rp.{post.hargaLayanan}</h3>
+                                <br/>
+                                <br/>
+
+                                <button className='btn-konten'>
+                        Daftar Paket
+                    </button>
+                            </div>
                         </div>
-                      ))}
-                  </>
-                </li>
-              </>
-            ))}
-          </ul>
-        ) : null}
-      </div>
-    );
-  }
-  
+                    </div>
+                   ) 
+            }   
+           
+            )
+        }
+        </div>
+    </div>
+    )
+}
+
+
+export default Layanan;
