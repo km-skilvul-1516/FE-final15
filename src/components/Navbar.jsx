@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Link} from 'react-scroll';
+import {Link} from 'react-router-dom';
 import logo from '../images/logo1.png';
 
 function Navbar() {
@@ -27,16 +27,17 @@ function Navbar() {
                 <span className='nav-icon'></span>
             </label>
             <ul className='menu'>
-                <li><Link to="main" smooth={true} duration={1200}>Beranda</Link></li>
-                <li><Link to="" smooth={true} duration={1200}>Tes Psikologi</Link></li>
-                <li><Link to="about" smooth={true} duration={1200}>Layanan</Link></li>
-                <li><Link to="" smooth={true} duration={1200}>Konten</Link></li>
-                <li><Link to="contact" smooth={true} duration={1200}>Hubungi Kami</Link></li>
+                <li><Link to="main">Beranda</Link></li>
+                <li><Link to="/quiz">Tes Psikologi</Link></li>
+                <li><Link to="about">Layanan</Link></li>
+                <li><Link to="">Konten</Link></li>
+                <li><Link to="/hubungi">Hubungi Kami</Link></li>
                
             </ul>
-            <Link to ="/#">
-                <button className="btn-nav">Daftar</button>               
+            <Link to="/register">
+            <button className="btn-nav"> Daftar </button>
             </Link>
+            
         </nav>
     )
 }
