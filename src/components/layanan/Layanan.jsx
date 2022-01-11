@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import Navbar from '../Navbar'
 import Logo1 from '../../images/logo1.png';
+import Lypsikolog from './LayananPsikolog';
 
 function Layanan() {
     const [APIData, setAPIData] = useState([]);
@@ -60,6 +61,7 @@ function Layanan() {
             )
         }
         </div>
+        <Lypsikolog/>
     </div>
     )
 }
