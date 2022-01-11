@@ -37,7 +37,7 @@ export const Soal = () => {
                             return (
                                 <div className='card-soal'>
                                     <Form.Item name={"soal" + countSoal} label={isiSoal.soal}>
-                                <div className='pilihan-jawaban'>
+                                    <div className='pilihan-jawaban'>
                                     <Radio.Group size="small" buttonStyle='outline'>
                                         <Space direction="horizontal">
                                         <Radio value="a">{isiSoal.pilihanA}</Radio>
@@ -46,7 +46,7 @@ export const Soal = () => {
                                         <Radio value="d">{isiSoal.pilihanD}</Radio>
                                         </Space>
                                     </Radio.Group>
-                                </div>
+                                    </div>
                                 </Form.Item>
                              </div>
                             )
@@ -59,9 +59,9 @@ export const Soal = () => {
             <div className='btn-submit'>
                 <Form.Item>
                     <Link to ='/result'>
-                        <Button type="primary" htmlType="submit" shape='round' color='#FFCD4F'>
+                        <button className='btn-kirim'>
                             Kirim jawaban
-                        </Button>
+                        </button>
                     </Link>
                 </Form.Item>
             </div>
