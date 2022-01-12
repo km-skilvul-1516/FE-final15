@@ -9,6 +9,9 @@ import Layanan from './components/layanan/Layanan'
 import FormLayananA from './components/layanan/FormLayananA';
 import QuizResult from './components/quiz/QuizResult'
 import Footer from './components/Footer';
+import Admin from './components/admin/Admin';
+import Artikel from './components/admin/Artikel';
+import Konten from './components/Konten/Konten';
 
 
 function App() {
@@ -24,6 +27,9 @@ function App() {
         <Route exact path="/layanan" component={Layanan} />
         <Route exact path="/layananA" component ={FormLayananA}/>
         <Route exact path="/hubungi" components = {Footer}/>
+        <Route exact path="/admin" component={Admin}/>
+        <Route exact path="/artikel" component={Artikel}/>
+        <Route exact path="/konten" component={Konten}/>
       </div>
 
     </Router>
