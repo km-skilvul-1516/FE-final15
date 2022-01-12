@@ -39,7 +39,7 @@ export default function FormLayananA () {
                     remember: true,
                     }}
                     onFinish={formlayanan}
-                    style={{ width: "95%"}}
+                    // style={{ width: "95%"}}
                     size="large"
                     
                 >
@@ -47,7 +47,7 @@ export default function FormLayananA () {
                         <h2 >Hai</h2><br/>
                         <h2 >Isi Data Ini Yuk</h2> <br /><br />
                         <Row>
-                            <Col span={8}>
+                            <Col span={12}>
                             <h6 htmlFor="">Nama</h6>
                             <Form.Item 
                                 name="nama" 
@@ -64,8 +64,6 @@ export default function FormLayananA () {
                             >
                                 <input type="email" placeholder="Masukkan Email Anda"  className="inp-sel"/>
                             </Form.Item>
-                            </Col>
-                            <Col span={8}>
                             <h6 htmlFor="">Nomer HP</h6>
                             <Form.Item 
                                 name="noHP" 
@@ -92,10 +90,7 @@ export default function FormLayananA () {
                                         }
                                     </select>
                                 </Form.Item>
-
-                            </Col>
-                            <Col span={8}>
-                            <h6 htmlFor="">Sesi Konsultasi 1</h6>
+                                <h6 htmlFor="">Sesi Konsultasi 1</h6>
                             <Form.Item 
                                 name="tanggal1" 
                                 className="inp-sel"
@@ -120,12 +115,15 @@ export default function FormLayananA () {
                                 <input type="date"  className="inp-sel"/>
                             </Form.Item>
                             </Col>
+                            
+                            <Col span={12}>
+                            <h6>Deskripsi Keluhan</h6>
+                            <Form.Item name="deskripsiKeluhan" style={{marginLeft : 40}}>
+                            <TextArea rows={3} placeholder="Tuliskan Keluhanmu Disini" name="deskripsiKeluhan"  />
+                            </Form.Item>
+
+                            </Col>
                         </Row>
-                        
-                        <h6>Deskripsi Keluhan</h6>
-                        <Form.Item name="deskripsiKeluhan">
-                           <TextArea rows={3} placeholder="Tuliskan Keluhanmu Disini" name="deskripsiKeluhan" />
-                        </Form.Item>
                         <Form.Item>
                         <button className="btn-form"> Submit </button>
                         </Form.Item>
