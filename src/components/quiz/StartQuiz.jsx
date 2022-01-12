@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../quiz/quiz.css'
+import Navbar from '../Navbar';
 
 export const StartQuiz = () => {
     return (
         <div>
+            <Navbar />
             <div className='card-start-container'>
                 <div className='"card-title'>
                     <h2>Tes Tingkat Keparahan Stress</h2>
