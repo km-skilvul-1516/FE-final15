@@ -16,8 +16,6 @@ export default function FormLayananA () {
     useEffect(() => {
         axios.get("https://teslah-final.herokuapp.com/psikolog/getAllPsikolog")
             .then((response) => {
-                console.log('ini dari useeffect array',response.data.result)
-                console.log('ini dari useeffect obj',response.data)
                 setAPIData(response.data.result);
             })
     },[])
