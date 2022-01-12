@@ -6,61 +6,44 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Admin = () => {
-    const [APIData, setAPIData] = useState([]);
+    const [APIData, setAPIData] = useState();
     useEffect(() => {
         axios.get("https://teslah-final.herokuapp.com/artikel/getArtikel")
             .then((response) => {
+                setDataSource(response.data.result);
                 setAPIData(response.data.result);
             })
     },[])
-    console.log(APIData)
-    const [dataSource, setDataSource]=  useState([
-        {
-            judul: 'ini judul 1',
-            author: 'ini author 1',
-            tanggal: "01",
-            tag: 'ini tag',
-            penerbit: 'ini penerbit 1',
-            image: 'ini image 1',
-            deskripsi: 'ini deskripsi 1'
-        },
-    ]);
+    console.log('ini dari data', APIData)
+
+    // console.log(dataSource)
+    const [dataSource, setDataSource]=  useState();
 
     const columns = [
         {
             title:"Judul",
-            dataIndex:"judul",
-            key:"judul"
+            dataIndex:"Judul",
+            key:"Judul"
         },
         {
             title:"Author",
-            dataIndex:"author",
-            key:"author"
+            dataIndex:"Author",
+            key:"Author"
         },
         {
             title:"Tanggal",
-            dataIndex:"tanggal",
-            key:"tanggal"
+            dataIndex:"Tanggal",
+            key:"Tanggal"
         },
         {
             title:"Tag",
-            dataIndex:"tag",
-            key:"tag"
+            dataIndex:"Tag",
+            key:"Tag"
         },
         {
             title:"Penerbit",
-            dataIndex:"penerbit",
-            key:"penerbit"
-        },
-        {
-            title:"Image",
-            dataIndex:"image",
-            key:"image"
-        },
-        {
-            title:"Deskripsi",
-            dataIndex:"deskripsi",
-            key:"deskripsi"
+            dataIndex:"Penerbit",
+            key:"Penerbit"
         },
         {
             title:"Actions",
@@ -82,7 +65,7 @@ const Admin = () => {
                     </Link>
                     <Table className="admin-table"
                     columns={columns}
-                    dataSource={dataSource}
+                    dataSource={APIData}
                     style={{marginTop: 50, textAlign: "center"}}
                     size="large"
                    
@@ -91,16 +74,16 @@ const Admin = () => {
                     </Table>
                 </header>
                 {
-                    !APIData ? null
-                    :
-                    APIData.map((post) => {
-                        return (
-                           <div>
-                                <p>{post.Judul}</p>
-                                {/* <p>{post.Author}</p> */}
-                           </div>
-                        )
-                    })
+                    // !APIData ? null
+                    // :
+                    // APIData.map((post) => {
+                    //     return (
+                    //        <div>
+                    //             <p>{post.Judul}</p>
+                    //             {/* <p>{post.Author}</p> */}
+                    //        </div>
+                    //     )
+                    // })
                 }
             </div>
     );

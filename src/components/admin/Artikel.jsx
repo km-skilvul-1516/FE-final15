@@ -65,15 +65,7 @@ function Artikel () {
                             className="inputfield"
                         >
                             <input type="text" placeholder="Masukkan Penerbit Artikel" className="inputfield" />
-                        </Form.Item> 
-                        
-                        <h6 htmlFor="">Deskripsi</h6>
-                        <Form.Item 
-                            name="Deskripsi" 
-                            className="inputfield"
-                        >
-                            <TextArea rows={3} placeholder="Masukkan Deskripsi Artikel" name="deskripsiKeluhan"  />
-                        </Form.Item> 
+                        </Form.Item>
                         
                         <div class="inputfield">
                             <input type="submit" value="Tambah Artikel" class="btn"></input>
