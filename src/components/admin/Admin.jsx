@@ -1,9 +1,18 @@
 import { Table, Tag, Space, Button } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {EditOutlined, DeleteOutlined} from '@ant-design/icons'
 import '../../style/admin.css'
+import axios from "axios";
 
 const Admin = () => {
+    const [APIData, setAPIData] = useState([]);
+    useEffect(() => {
+        axios.get("https://teslah-final.herokuapp.com/artikel/getArtikel")
+            .then((response) => {
+                setAPIData(response.data.result);
+            })
+    },[])
+    console.log(APIData)
     const [dataSource, setDataSource]=  useState([
         {
             judul: 'ini judul 1',
@@ -14,33 +23,6 @@ const Admin = () => {
             image: 'ini image 1',
             deskripsi: 'ini deskripsi 1'
         },
-        {
-            judul: 'ini judul 2',
-            author: 'ini author 2',
-            tanggal: "02",
-            tag: 'ini tag 2',
-            penerbit: 'ini penerbit 2',
-            image: 'ini image 2',
-            deskripsi: 'ini deskripsi 2'
-        },
-        {
-            judul: 'ini judul 3',
-            author: 'ini author 3',
-            tanggal: "03",
-            tag: 'ini tag 3',
-            penerbit: 'ini penerbit 3',
-            image: 'ini image 3',
-            deskripsi: 'ini deskripsi 3'
-        },
-        {
-            judul: 'ini judul 4',
-            author: 'ini author 4',
-            tanggal: "04",
-            tag: 'ini tag 4',
-            penerbit: 'ini penerbit 4',
-            image: 'ini image 4',
-            deskripsi: 'ini deskripsi 4'
-        }
     ]);
 
     const columns = [
@@ -100,10 +82,23 @@ const Admin = () => {
                     dataSource={dataSource}
                     style={{marginTop: 50, textAlign: "center"}}
                     size="large"
+                   
                     >
 
                     </Table>
                 </header>
+                {
+                    !APIData ? null
+                    :
+                    APIData.map((post) => {
+                        return (
+                           <div>
+                                <p>{post.Judul}</p>
+                                <p>{post.Author}</p>
+                           </div>
+                        )
+                    })
+                }
             </div>
     );
 }

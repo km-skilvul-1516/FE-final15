@@ -1,44 +1,79 @@
 import { Form, Input, Button } from "antd";
 import React from "react";
-import '../../style/Artikel.css'
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { post_artikel } from "../../redux/action";
+import '../../style/Artikel.css';
+const { TextArea } = Input;
 
 function Artikel () {
+    const dispatch = useDispatch()
+
+    const history = useHistory()
+    const artikel = (values) => {
+        dispatch(post_artikel (values,history))
+    }
     return (
         <div className="container">
-                <Form >
+                <Form 
+                    name="normal_artikel"
+                    initialValues={{
+                        remember: true,
+                    }}
+                    onFinish={artikel}
+                >
                 <div class="wrapper">
                     <div class="title">
                         Form Tambah Artikel
                     </div>
                     <div class="form">
-                        <div class="inputfield">
-                            <label>Judul Artikel</label>
-                            <input type="text" class="input"></input>
-                        </div>  
-                        <div class="inputfield">
-                            <label>Author</label>
-                            <input type="text" class="input"></input>
-                        </div>  
-                        <div class="inputfield">
-                            <label>Tanggal</label>
-                            <input type="date" class="input"></input>
-                        </div>
-                        <div class="inputfield">
-                            <label>Tag</label>
-                            <input type="text" class="input"></input>
-                        </div> 
-                        <div class="inputfield">
-                            <label>Penerbit</label>
-                            <input type="text" class="input"></input>
-                        </div> 
-                        <div class="inputfield">
-                            <label>Image</label>
-                            <input type="file" class="input" accept="image/png"></input>
-                        </div> 
-                        <div class="inputfield">
-                            <label>Deskripsi</label>
-                            <textarea class="textarea"></textarea>
-                        </div> 
+                        
+                        <h6 htmlFor="">Judul</h6>
+                            <Form.Item 
+                                name="Judul" 
+                                className="inputfield"
+                            >
+                                <input type="text" placeholder="Masukkan Judul Artikel" className="inputfield" />
+                            </Form.Item>
+                        <h6 htmlFor="">Author</h6>
+                        <Form.Item 
+                            name="Author" 
+                            className="inputfield"
+                        >
+                            <input type="text" placeholder="Masukkan Author Artikel" className="inputfield" />
+                        </Form.Item>  
+                         
+                        <h6 htmlFor="">Tanggal Penerbitan</h6>
+                        <Form.Item 
+                            name="Tanggal" 
+                            className="inputfield"
+                        >
+                            <input type="date" placeholder="Masukkan Tanggal Penerbitan Artikel" className="inputfield" />
+                        </Form.Item> 
+                        
+                        <h6 htmlFor="">Tag</h6>
+                        <Form.Item 
+                            name="Tag" 
+                            className="inputfield"
+                        >
+                            <input type="text" placeholder="Masukkan Tag Artikel" className="inputfield" />
+                        </Form.Item> 
+
+                        <h6 htmlFor="">Penerbit</h6>
+                        <Form.Item 
+                            name="Penerbit" 
+                            className="inputfield"
+                        >
+                            <input type="text" placeholder="Masukkan Penerbit Artikel" className="inputfield" />
+                        </Form.Item> 
+                        
+                        <h6 htmlFor="">Deskripsi</h6>
+                        <Form.Item 
+                            name="Deskripsi" 
+                            className="inputfield"
+                        >
+                            <TextArea rows={3} placeholder="Masukkan Deskripsi Artikel" name="deskripsiKeluhan"  />
+                        </Form.Item> 
                         
                         <div class="inputfield">
                             <input type="submit" value="Tambah Artikel" class="btn"></input>
