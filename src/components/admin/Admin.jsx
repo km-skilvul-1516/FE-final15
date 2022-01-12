@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import {EditOutlined, DeleteOutlined} from '@ant-design/icons'
 import '../../style/admin.css'
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
     const [APIData, setAPIData] = useState([]);
@@ -76,7 +77,9 @@ const Admin = () => {
     return (
             <div className="container">
                 <header className="admin-header">
+                    <Link to='/artikel'>
                     <Button type="primary" style={{marginTop: 50}}>Tambah Artikel</Button>
+                    </Link>
                     <Table className="admin-table"
                     columns={columns}
                     dataSource={dataSource}
@@ -94,7 +97,7 @@ const Admin = () => {
                         return (
                            <div>
                                 <p>{post.Judul}</p>
-                                <p>{post.Author}</p>
+                                {/* <p>{post.Author}</p> */}
                            </div>
                         )
                     })

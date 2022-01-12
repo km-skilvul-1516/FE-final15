@@ -2,7 +2,7 @@ import React from 'react';
 import '../quiz/quiz.css'
 import { useSelector } from 'react-redux';
 import queryString from 'query-string';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Navbar from '../Navbar'
 
 export const QuizResult = () => {
@@ -71,12 +71,16 @@ export const QuizResult = () => {
                     </table>
                 </div>
                 <div className='btn-result'>
+                    <Link to='/admin'>
                     <button className='btn-konten'>
                         Lihat konten
                     </button>
-                    <button className='btn-layanan'>
+                    </Link>
+                   <Link to ='/layanan'>
+                   <button className='btn-layanan'>
                         Ambil layanan
                     </button>
+                    </Link>
                 </div>
             </div>
         </div>
