@@ -60,6 +60,7 @@ nav ul{
 nav ul li a{
     font-family: 'inter';
 	margin: 3px;
+    text-decoration: none;
 	padding: 0px 22px;
 	display: flex;
 	font-size: 16px;
@@ -157,6 +158,8 @@ nav .menu-btn,
     box-shadow: 5px 10px 30px rgba(46, 36, 36, 0.336);
     border-radius: 5px;
 	color:#ffffff;
+    text-decoration: none;
+
 }
 .header-btn:hover{
 	background-color: transparent;
@@ -518,6 +521,7 @@ title{
     .menu-icon{
         display:block;}
             nav{
+               
                 justify-content: space-between;
                 height: 80px;
                 padding: 0px 20px;
@@ -676,6 +680,7 @@ title{
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 body{
     font-family: 'Inter', 'Sora';
+    
 }
 
 .footer-area {
