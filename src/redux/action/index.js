@@ -38,6 +38,17 @@ export const post_register = (data, history) => {
     }
 }
 
+export const post_layanan = (data, history) => {
+    return (dispacth) => {
+        axios
+            .post("https://teslah-final.herokuapp.com/formlayanan/addform", data)
+            .then ((res) => {
+                window.location.href = '/'
+                console.log(res)
+            })
+    }
+}
+
 export const get_quiz = () => {
   return (dispatch) => {
     axios

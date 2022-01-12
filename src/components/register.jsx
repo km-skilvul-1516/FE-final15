@@ -12,7 +12,7 @@ export default function Register () {
 
     const history = useHistory()
     const register = (values) => {
-        dispatch (post_register (values,history))
+        dispatch(post_register (values,history))
     }
 
     return (
@@ -88,20 +88,8 @@ export default function Register () {
                                             <input type="date" />
                                         </Form.Item>
 
-                                        <h6 htmlFor="">Foto Profil</h6>
-                                        <Form.Item 
-                                            name="foto" 
-                                            className="input-field"
-                                            style={{marginLeft : 120, width : 500}} 
-                                            rules={[{ required: true }]} 
-                                        >
-                                            <input type='file' name="foto" className="input-field"/>
-                                        </Form.Item>
-
                                         <Form.Item>
-                                            <Link to= "/">
-                                            <button className="btn-masuk"> Submit </button>
-                                            </Link>
+                                            <button className="btn-masuk" type="submit"> Submit </button>
                                         </Form.Item>
                                     </div>
                                 
