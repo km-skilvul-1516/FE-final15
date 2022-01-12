@@ -1,10 +1,29 @@
 .latar{
-    background-color : violet;
+    background-color : #37D0E9;
     width : 70%;
     margin-left : 200px;
     border-radius : 10px;
 }
 
 .item {
+    margin-top : 15%;
     margin-left : 10%;
+}
+
+.inp-sel{
+    border : none;
+    border-radius : 5px;
+    width : 210px;
+    height : 40px;
+}
+
+.btn-form{
+    color: white;
+    border: none;
+    background-color:#FFCD4F;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+    cursor : pointer;
 }

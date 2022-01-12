@@ -2,20 +2,44 @@ import { Col, Form, Row, Select } from "antd";
 import { FormControl, InputGroup } from "react-bootstrap";
 import "../../style/formlayanan.css"
 import { Input } from 'antd';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Navbar from "../Navbar"
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { post_layanan } from "../../redux/action";
 
 const { TextArea } = Input;
 
 export default function FormLayananA () {
+    const [APIData, setAPIData] = useState([]);
+    useEffect(() => {
+        axios.get("https://teslah-final.herokuapp.com/psikolog/getAllPsikolog")
+            .then((response) => {
+                console.log('ini dari useeffect array',response.data.result)
+                console.log('ini dari useeffect obj',response.data)
+                setAPIData(response.data.result);
+            })
+    },[])
+    console.log(APIData)
+
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const formlayanan = (values) => {
+        dispatch(post_layanan (values,history))
+    }
     return (
         <div className="latar">
+            <Navbar/>
             <div className="item">
+            
                 <Form
                     name="normal_login"
                     initialValues={{
                     remember: true,
                     }}
-                    // onFinish={login}
-                    style={{ width: "85%", marginTop: 50, marginLeft: 10 }}
+                    onFinish={formlayanan}
+                    style={{ width: "95%"}}
                     size="large"
                     
                 >
@@ -24,106 +48,86 @@ export default function FormLayananA () {
                         <h2 >Isi Data Ini Yuk</h2> <br /><br />
                         <Row>
                             <Col span={8}>
-                                <Form.Item name="nama">
-                                    <h6>Nama</h6>
-                                    <InputGroup className="mb-6">
-                                        {/* <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text> */}
-                                        <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        placeholder="masukkan nama mu"
-                                        
-                                        />
-                                    </InputGroup>
-                                </Form.Item>
-                                <Form.Item name="email">
-                                    <h6>Email</h6>
-                                    <InputGroup className="mb-6">
-                                        {/* <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text> */}
-                                        <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        placeholder="masukkan email mu"
-                                        type="email"
-                                        />
-                                    </InputGroup>
-                                </Form.Item>
+                            <h6 htmlFor="">Nama</h6>
+                            <Form.Item 
+                                name="nama" 
+                                className="inp-sel"
+                                rules={[{ required: true }]} 
+                            >
+                                <input type="text" placeholder="Masukkan Nama Anda"  className="inp-sel"/>
+                            </Form.Item>
+                            <h6 htmlFor="">Email</h6>
+                            <Form.Item 
+                                name="email" 
+                                className="inp-sel"
+                                rules={[{ required: true }]} 
+                            >
+                                <input type="email" placeholder="Masukkan Email Anda"  className="inp-sel"/>
+                            </Form.Item>
                             </Col>
                             <Col span={8}>
-                                <Form.Item name="noHP" style = {{marginLeft : 30}}>
-                                    <h6>No HP</h6>
-                                    <InputGroup className="mb-6">
-                                        {/* <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text> */}
-                                        <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        placeholder="masukkan nomer HP mu"
-                                        type="number"
-                                        />
-                                    </InputGroup>
-                                </Form.Item>
+                            <h6 htmlFor="">Nomer HP</h6>
+                            <Form.Item 
+                                name="noHP" 
+                                className="inp-sel"
+                                rules={[{ required: true }]} 
+                            >
+                                <input type="text" placeholder="Masukkan Nomer HP Anda"  className="inp-sel"/>
+                            </Form.Item>
                                 <h6>Psikolog</h6>
-                                <Form.Item name="psikolog" style = {{marginLeft : 30}} >
-                                    <select style={{ width: 50}} className="mb-6">
-                                            <option>a</option>
-                                            <option>b</option>
+                                <Form.Item 
+                                    name="psikolog" 
+                                    style={{marginLeft : 10}} 
+                                    rules={[{ required: true }]} 
+                                >
+                                    <select className="mb-6 inp-sel">
+                                        {
+                                            !APIData ? null
+                                            :
+                                            APIData.map((post)=> {
+                                                return (
+                                                    <option>{post.nama}</option>
+                                                )
+                                            })
+                                        }
                                     </select>
                                 </Form.Item>
 
                             </Col>
                             <Col span={8}>
-                                
-                                <Form.Item style={{ marginLeft: 30 }}>
-                                <h6>Sesi Konsultasi 1</h6>
-                                <InputGroup className="mb-4">
-                                        {/* <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text> */}
-                                        <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        placeholder="masukkan nomer HP mu"
-                                        type="date"
-                                        
-                                        />
-                                </InputGroup>
-                                </Form.Item>
-                                
-                                <Form.Item style={{ marginLeft: 30 }}>
-                                <h6>Sesi Konsultasi 2</h6>
-                                <InputGroup className="mb-4">
-                                        {/* <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text> */}
-                                        <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        placeholder="masukkan nomer HP mu"
-                                        type="date"
-                                        
-
-                                        />
-                                </InputGroup>
-                                </Form.Item>
-                               
-                                <Form.Item style={{ marginLeft: 30 }}>
-                                <h6>Sesi Konsultasi 3</h6>
-                                <InputGroup className="mb-5">
-                                        {/* <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text> */}
-                                        <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        placeholder="masukkan nomer HP mu"
-                                        type="date"
-                                        
-                                        />
-                                </InputGroup>
-                                </Form.Item>
+                            <h6 htmlFor="">Sesi Konsultasi 1</h6>
+                            <Form.Item 
+                                name="tanggal1" 
+                                className="inp-sel"
+                                rules={[{ required: true }]} 
+                            >
+                                <input type="date"  className="inp-sel"/>
+                            </Form.Item>
+                            <h6 htmlFor="">Sesi Konsultasi 2</h6>
+                            <Form.Item 
+                                name="tanggal2" 
+                                className="inp-sel"
+                                rules={[{ required: true }]} 
+                            >
+                                <input type="date"  className="inp-sel"/>
+                            </Form.Item>
+                            <h6 htmlFor="">Sesi Konsultasi 3</h6>
+                            <Form.Item 
+                                name="tanggal3" 
+                                className="inp-sel"
+                                rules={[{ required: true }]} 
+                            >
+                                <input type="date"  className="inp-sel"/>
+                            </Form.Item>
                             </Col>
                         </Row>
                         
                         <h6>Deskripsi Keluhan</h6>
-                        <Form.Item>
-                           <TextArea rows={4} />
+                        <Form.Item name="deskripsiKeluhan">
+                           <TextArea rows={3} placeholder="Tuliskan Keluhanmu Disini" name="deskripsiKeluhan" />
                         </Form.Item>
                         <Form.Item>
-                        <button > Submit </button>
+                        <button className="btn-form"> Submit </button>
                         </Form.Item>
                     </div>
                 </Form>
