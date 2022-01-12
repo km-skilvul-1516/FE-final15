@@ -37,13 +37,13 @@ export default function FormLayananA () {
                     remember: true,
                     }}
                     onFinish={formlayanan}
-                    // style={{ width: "95%"}}
+                    style={{ width: "95%", marginLeft:-70}}
                     size="large"
                     
                 >
                     <div >
-                        <h2 >Hai</h2><br/>
-                        <h2 >Isi Data Ini Yuk</h2> <br /><br />
+                        <h2 className="judul-lay" >Hai</h2><br/>
+                        <h2 className="judul-lay" >Isi Data Ini Yuk</h2> <br /><br />
                         <Row>
                             <Col span={12}>
                             <h6 htmlFor="">Nama</h6>
@@ -51,6 +51,7 @@ export default function FormLayananA () {
                                 name="nama" 
                                 className="inp-sel"
                                 rules={[{ required: true }]} 
+                                style={{marginLeft : 20}} 
                             >
                                 <input type="text" placeholder="Masukkan Nama Anda"  className="inp-sel"/>
                             </Form.Item>
@@ -59,6 +60,7 @@ export default function FormLayananA () {
                                 name="email" 
                                 className="inp-sel"
                                 rules={[{ required: true }]} 
+                                style={{marginLeft : 20}} 
                             >
                                 <input type="email" placeholder="Masukkan Email Anda"  className="inp-sel"/>
                             </Form.Item>
@@ -67,13 +69,14 @@ export default function FormLayananA () {
                                 name="noHP" 
                                 className="inp-sel"
                                 rules={[{ required: true }]} 
+                                style={{marginLeft : 20}} 
                             >
                                 <input type="text" placeholder="Masukkan Nomer HP Anda"  className="inp-sel"/>
                             </Form.Item>
                                 <h6>Psikolog</h6>
                                 <Form.Item 
                                     name="psikolog" 
-                                    style={{marginLeft : 10}} 
+                                    style={{marginLeft : 5}} 
                                     rules={[{ required: true }]} 
                                 >
                                     <select className="mb-6 inp-sel">
@@ -88,11 +91,17 @@ export default function FormLayananA () {
                                         }
                                     </select>
                                 </Form.Item>
-                                <h6 htmlFor="">Sesi Konsultasi 1</h6>
+                                
+                            </Col>
+                            
+                            <Col span={12}>
+                            <div className="kiri">
+                            <h6 htmlFor="">Sesi Konsultasi 1</h6>
                             <Form.Item 
                                 name="tanggal1" 
                                 className="inp-sel"
                                 rules={[{ required: true }]} 
+                                style={{marginLeft : 20}} 
                             >
                                 <input type="date"  className="inp-sel"/>
                             </Form.Item>
@@ -101,6 +110,7 @@ export default function FormLayananA () {
                                 name="tanggal2" 
                                 className="inp-sel"
                                 rules={[{ required: true }]} 
+                                style={{marginLeft : 20}} 
                             >
                                 <input type="date"  className="inp-sel"/>
                             </Form.Item>
@@ -109,16 +119,15 @@ export default function FormLayananA () {
                                 name="tanggal3" 
                                 className="inp-sel"
                                 rules={[{ required: true }]} 
+                                style={{marginLeft : 20}} 
                             >
                                 <input type="date"  className="inp-sel"/>
                             </Form.Item>
-                            </Col>
-                            
-                            <Col span={12}>
-                            <h6>Deskripsi Keluhan</h6>
-                            <Form.Item name="deskripsiKeluhan" style={{marginLeft : 40}}>
+                            <h6 >Deskripsi Keluhan</h6>
+                            <Form.Item name="deskripsiKeluhan"  style={{marginLeft : 20}}  >
                             <TextArea rows={3} placeholder="Tuliskan Keluhanmu Disini" name="deskripsiKeluhan"  />
                             </Form.Item>
+                            </div>
 
                             </Col>
                         </Row>
