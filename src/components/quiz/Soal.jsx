@@ -31,48 +31,49 @@ export const Soal = () => {
     return (
         <div>
             <div className='quiz-card'>
-                <h2> Tes Tingkat Keparahan Stress </h2>
+                <div className='quiz-title'>
+                    <h2> Tes Tingkat Keparahan Stress </h2>
+                </div>
+                <div className='card'>
+                    <Form name='quiz' onFinish={submit} onValuesChange={logger}>
+                    {
+                        !soal ?
+                        null
+                        :
+                        soal.map((soal) => {
+                        return (
+                            soal.isiQuiz.map((isiSoal, index) => {
+                                return (
+                                    <div className='card-soal'>
+                                        <Form.Item name={"soal" + index} label={isiSoal.soal}>
+                                        <div className='pilihan-jawaban'>
+                                        <Radio.Group size="small" buttonStyle='outline'>
+                                            <Space direction="horizontal">
+                                            <Radio value="a">{isiSoal.pilihanA}</Radio>
+                                            <Radio value="b">{isiSoal.pilihanB}</Radio>
+                                            <Radio value="c">{isiSoal.pilihanC}</Radio>
+                                            <Radio value="d">{isiSoal.pilihanD}</Radio>
+                                            </Space>
+                                        </Radio.Group>
+                                        </div>
+                                    </Form.Item>
+                                </div>
+                                )
+                            })
+                        )
+                    }
+                 )}
+                <br />
+                <div className='btn-submit'>
+                    <Form.Item>
+                            <Button type='primary' htmlType='submit' className='btn-kirim'>
+                                Kirim jawaban
+                            </Button>
+                    </Form.Item>
+                </div>
+                </Form>
             </div>
-            <div className='card'>
-                <Form name='quiz' onFinish={submit} onValuesChange={logger}>
-                {
-                    !soal ?
-                    null
-                    :
-                    soal.map((soal) => {
-                    return (
-                        soal.isiQuiz.map((isiSoal, index) => {
-                            // count = count + 1
-                            // setCount(countSoal + 1)
-                            return (
-                                <div className='card-soal'>
-                                    <Form.Item name={"soal" + index} label={isiSoal.soal}>
-                                    <div className='pilihan-jawaban'>
-                                    <Radio.Group size="small" buttonStyle='outline'>
-                                        <Space direction="horizontal">
-                                        <Radio value="a">{isiSoal.pilihanA}</Radio>
-                                        <Radio value="b">{isiSoal.pilihanB}</Radio>
-                                        <Radio value="c">{isiSoal.pilihanC}</Radio>
-                                        <Radio value="d">{isiSoal.pilihanD}</Radio>
-                                        </Space>
-                                    </Radio.Group>
-                                    </div>
-                                </Form.Item>
-                             </div>
-                            )
-                        })
-                    )
-                }
-            )}
-            <div className='btn-submit'>
-                <Form.Item>
-                        <Button type='primary' htmlType='submit' className='btn-kirim'>
-                            Kirim jawaban
-                        </Button>
-                </Form.Item>
-            </div>
-            </Form>
-         </div>    
+         </div>       
     </div>
         
     );

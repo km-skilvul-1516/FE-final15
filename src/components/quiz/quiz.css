@@ -69,21 +69,28 @@ input {
 .quiz-card {
     text-align: center;
     margin-bottom: 3em;
-    margin-top: 2em;
+    padding: 2em;
+    background-color: #5EBFCF;
+}
 
+.quiz-title {
+    margin-bottom: 1em;
 }
 
 .card {
-    margin-left: 8em;
-    margin-right: 8em;
-    padding: 1em;
-    box-shadow: 0px 0px 10px -2px;
-    background-color: whitesmoke;
-
+    margin: auto;
+    border: none;
+    padding: 2em;
+    height: auto;
+    width: 1040px;
+    box-sizing: border-box;
 }
 
 .card-soal {
     margin-top: 1em;
+    text-align: left;
+    justify-content: left;
+    border: none;
 }
 
 .pilihan-jawaban {
@@ -95,15 +102,6 @@ input {
     justify-content: left;
 }
 
-.btn-submit {
-    display: flex;
-    justify-content: right;
-    padding-top: 2em;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-right: 8em;
-}
-
 .btn-kirim {
     padding: 0.5em;
     width: 8em;
@@ -112,6 +110,7 @@ input {
     background-color: #FFCD4F;
     border-radius: 8px;
     box-sizing: border-box;
+    margin-bottom: 2em;
 }
 
 .btn-result {
@@ -139,11 +138,6 @@ input {
     text-align: center;
 }
 
-.card-result:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 15px 0px;
-}
-
 .result-box table {
     width: 100%;
     border-collapse: collapse;
@@ -168,4 +162,32 @@ input {
     border: none;
     transition: 0.2s;
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .card-result {
+        height: 460px;
+        width: 420px;
+    }
+
+    .card {
+        margin: auto;
+    }
+
+    .quiz-card {
+        margin: auto;
+    }
+
+    .pilihan-jawaban {
+        margin-top: 1em;
+        padding: auto;
+        background-color: transparent;
+    }
+
+    .card-soal {
+        margin: auto;
+        background-color: transparent;
+    }
+
+
 }
