@@ -1,0 +1,10 @@
+Card {
+    text-align: center;
+}
+
+.pembungkus-kartu {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 100px;
+}
+

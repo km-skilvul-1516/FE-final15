@@ -49,6 +49,17 @@ export const post_layanan = (data, history) => {
     }
 }
 
+export const post_artikel = (data, history) => {
+    return (dispacth) => {
+        axios
+            .post("https://teslah-final.herokuapp.com/artikel/postArt", data)
+            .then ((res) => {
+                window.location.href = '/admin'
+                console.log(res)
+            })
+    }
+}
+
 export const get_quiz = () => {
   return (dispatch) => {
     axios
