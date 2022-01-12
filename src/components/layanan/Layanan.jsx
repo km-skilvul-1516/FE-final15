@@ -61,7 +61,7 @@ function Layanan() {
             )
         }
         </div>
-        <Lypsikolog/>
+         <Lypsikolog/> 
     </div>
     )
 }
