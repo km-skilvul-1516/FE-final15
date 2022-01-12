@@ -3,6 +3,7 @@ import '../quiz/quiz.css'
 import { useSelector } from 'react-redux';
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
+import Navbar from '../Navbar'
 
 export const QuizResult = () => {
     const { search } = useLocation()
@@ -19,7 +20,7 @@ export const QuizResult = () => {
                     Kamu bisa melihat profil psikolog yang akan menemani sesi konselingmu.
                     Selain itu, kamu juga bisa menikmati konten-konten yang tersedia
                     untuk membuat pikiran kamu lebih tenang </tr>
-    } else if (hasil == "sedang ") {
+    } else if (hasil == "sedang") {
         desc = <tr>Berdasarkan hasil tes maka tingkat stress kamu adalah "SEDANG".
                     Oleh karena itu, kami menyarankan agar melakukan sesi konseling
                     untuk membantumu mencari jalan keluar dari masalah yang mengganggu pikiranmu.
@@ -37,6 +38,10 @@ export const QuizResult = () => {
 
     return (
         <div>
+            <Navbar />
+            <br />
+            <br />
+            <br />
             <div className='card-result'>
                 <div className='card-result-title'>
                     <h2>Hasil Tes Tingkat Keparahan Stress</h2>
@@ -57,11 +62,12 @@ export const QuizResult = () => {
                             </td>
                             <td>
                                 { score }/100
+                                
                             </td>
                         </tr>
                     </table>
                     <table className='result-desc'>
-                        {desc}
+                       {desc}
                     </table>
                 </div>
                 <div className='btn-result'>
