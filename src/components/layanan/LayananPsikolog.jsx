@@ -1,12 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
-import { Carousel } from '@trendyol-js/react-carousel';
 
 function Lypsikolog() {
     const [APIData, setAPIData] = useState([]);
     useEffect(() => {
-        axios.get("https://teslah-final.herokuapp.com/psikolog/getAllPsikolog")
+        axios.get("https://teslah-final.herokuapp.com/psikolog/getAllPsikolog",{
+            params: {
+              _limit: 2
+        }})
             .then((response) => {
                 console.log('ini dari useeffect array',response.data.result)
                 console.log('ini dari useeffect obj',response.data)
@@ -20,9 +22,6 @@ function Lypsikolog() {
             <div className="listpaket">
                 <h2>Profil Psikolog</h2>
             </div>
-            
-                
-           
             <div className="a-container">
             {
             !APIData ? null
@@ -32,6 +31,7 @@ function Lypsikolog() {
                 return(
                     <div>
                     <div>
+                   
                             <div className = "a-boxp">
                                 <div className='poto'>
                             <img src={post.image}/>
@@ -45,8 +45,11 @@ function Lypsikolog() {
                                 <h6><b>Informasi </b>  : {post.informasi}</h6>
                                 <br/>
                             </div>
+                            
+                            
                             </div>
                         </div>
+                        
                     </div>
                    
                    ) 
@@ -55,6 +58,8 @@ function Lypsikolog() {
             )
         }
         </div>
+    
+          
     </div>
     )
 }
