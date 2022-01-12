@@ -27,12 +27,10 @@ function Navbar() {
                 <span className='nav-icon'></span>
             </label>
             <ul className='menu'>
-                <li><Link to="main">Beranda</Link></li>
+                <li><Link to="/">Beranda</Link></li>
                 <li><Link to="/quiz">Tes Psikologi</Link></li>
                 <li><Link to="/layanan">Layanan</Link></li>
                 <li><Link to="/konten">Konten</Link></li>
-                <li><Link to="/hubungi">Hubungi Kami</Link></li>
-               
             </ul>
             <Link to="/register">
             <button className="btn-nav"> Daftar </button>
