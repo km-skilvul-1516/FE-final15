@@ -17,7 +17,8 @@ export const post_login = (data, history) => {
                     ls.setItem('token', res.data.token)
                     ls.setItem('email', res.data.result.email)
                     ls.setItem('username', res.data.result.username)
-                    window.location.href = 'http://localhost:3000/admin'
+                    ls.setItem('role', res.data.result.role)
+                    window.location.href = '/admin'
                 }
             })
             .catch((error)=> {
@@ -40,11 +41,14 @@ export const post_register = (data, history) => {
 
 export const post_layanan = (data, history) => {
     return (dispacth) => {
+        console.log(data)
         axios
-            .post("https://teslah-final.herokuapp.com/formlayanan/addform", data)
+            .post("https://teslah-final.herokuapp.com/formlayanan/beliLayanan", data)
             .then ((res) => {
-                window.location.href = '/'
+                // window.location.href = '/'
                 console.log(res)
+                ls.setItem("qr", res.data.actions[0].url)
+                ls.setItem("deep link", res.data.actions[1].url)
             })
     }
 }

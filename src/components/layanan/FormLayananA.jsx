@@ -91,6 +91,20 @@ export default function FormLayananA () {
                                         }
                                     </select>
                                 </Form.Item>
+                                <Form.Item
+                                    name='Layanan'
+                                    initialValue="Layanan A"
+                                    hidden={true}
+                                >
+                                    <input type="hidden" value="Layanan A" name='Layanan' readOnly/>
+                                </Form.Item>
+                                <Form.Item
+                                    name='Price'
+                                    initialValue="400000"
+                                    hidden={true}
+                                >
+                                    <input type="hidden" value="400000" name='Price' readOnly/>
+                                </Form.Item>
                                 
                             </Col>
                             
@@ -132,7 +146,7 @@ export default function FormLayananA () {
                             </Col>
                         </Row>
                         <Form.Item>
-                        <button className="btn-form"> Submit </button>
+                        <button className="btn-form" type="submit"> Submit </button>
                         </Form.Item>
                     </div>
                 </Form>
