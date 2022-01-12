@@ -29,8 +29,8 @@ function Navbar() {
             <ul className='menu'>
                 <li><Link to="main">Beranda</Link></li>
                 <li><Link to="/quiz">Tes Psikologi</Link></li>
-                <li><Link to="about">Layanan</Link></li>
-                <li><Link to="">Konten</Link></li>
+                <li><Link to="/layanan">Layanan</Link></li>
+                <li><Link to="/konten">Konten</Link></li>
                 <li><Link to="/hubungi">Hubungi Kami</Link></li>
                
             </ul>
