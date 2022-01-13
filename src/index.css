@@ -8,8 +8,10 @@ body{
     background-color:rgb(150, 142, 142);
     font-family:'Inter', 'Sora';
 }
+
 *{
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 ul{
