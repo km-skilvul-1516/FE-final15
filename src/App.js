@@ -13,6 +13,7 @@ import Admin from './components/admin/Admin';
 import Artikel from './components/admin/Artikel';
 import Konten from './components/Konten/Konten';
 import DeskKonten from './components/Konten/DeskKonten';
+import afterForm from './components/layanan/afterForm';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/artikel" component={Artikel}/>
         <Route exact path="/konten" component={Konten}/>
         <Route exact path="/deskkonten" component={DeskKonten}/>
+        <Route exact path="/after" component ={afterForm}/>
       </div>
 
     </Router>

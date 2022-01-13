@@ -45,7 +45,7 @@ export const post_layanan = (data, history) => {
         axios
             .post("https://teslah-final.herokuapp.com/formlayanan/beliLayanan", data)
             .then ((res) => {
-                // window.location.href = '/'
+                window.location.href = '/after'
                 console.log(res)
                 ls.setItem("qr", res.data.actions[0].url)
                 ls.setItem("deep link", res.data.actions[1].url)
