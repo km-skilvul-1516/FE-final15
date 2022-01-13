@@ -39,9 +39,6 @@ export const QuizResult = () => {
     return (
         <div>
             <Navbar />
-            <br />
-            <br />
-            <br />
             <div className='card-result'>
                 <div className='card-result-title'>
                     <h2>Hasil Tes Tingkat Keparahan Stress</h2>
