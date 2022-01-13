@@ -64,7 +64,6 @@
 
 .quiz-con {
     text-align: center;
-    margin-bottom: 3em;
     padding: 2em;
     background-color: #5EBFCF;
 }
@@ -81,12 +80,14 @@
     border: none;
     padding: 2em;
     height: auto;
-    width: 1020px;
+    width: 960px;
     box-sizing: border-box;
     border-radius: 24px;
     box-shadow: 0px 0px 15px -5px;
     background-color: whitesmoke;
     font-family: 'inter' !important;
+    font-size: 16px;
+    margin-bottom: 3em;
 }
 
 .perintah {
@@ -114,15 +115,9 @@
     justify-content: left;
 }
 
-.btn-kirim {
-    padding: 0.5em;
-    width: 8em;
-    height: 3em;
-    align-items: center;
-    background-color: #FFCD4F;
-    border-radius: 8px;
-    box-sizing: border-box;
-    margin-bottom: 2em;
+.btn-submit {
+    margin-top:2em;
+
 }
 
 .btn-result {
@@ -182,32 +177,31 @@
 
 @media (max-width: 600px) {
     .card-result {
-        height: 480px;
+        height: 560px;
         width: 380px;
     }
 
     .form-card {
-        margin: auto;
         height: fit-content;
         width: 420px;
+        background-color: lightcyan;
+        padding: 16px;
     }
 
     .quiz-con {
-        margin: auto;
         height: auto;
         width: fit-content;
     }
 
     .pilihan-jawaban {
-        margin-top: 1em;
-        padding: auto;
         background-color: transparent;
         height: fit-content;
         width: fit-content;
+        margin-top: 8px;
     }
 
     .quiz-card {
-        margin: auto;
+        margin-left: auto;
         height: fit-content;
         width: 420px;
     }
@@ -218,9 +212,10 @@
     }
 
     .card-start-container {
-        width: fit-content;
-        height: fit-content;
+        height: 280px;
+        width: 380px;
     }
+
 
 
 }

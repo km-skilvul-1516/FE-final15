@@ -52,17 +52,19 @@ export const Soal = () => {
                                     return (
                                         soal.isiQuiz.map((isiSoal, index) => {
                                             return (
-                                                <Form.Item name={"soal" + index} label={isiSoal.soal}>
-                                                    <div className='pilihan-jawaban'>
-                                                    <Radio.Group size="medium" buttonStyle='outline'>
-                                                        <Space direction="horizontal">
-                                                        <Radio value="a">{isiSoal.pilihanA}</Radio>
-                                                        <Radio value="b">{isiSoal.pilihanB}</Radio>
-                                                        <Radio value="c">{isiSoal.pilihanC}</Radio>
-                                                        <Radio value="d">{isiSoal.pilihanD}</Radio>
-                                                        </Space>
-                                                    </Radio.Group>
-                                                </div>
+                                                <Form.Item name={"soal" + index} label={isiSoal.soal} layout='vertical'>
+                                                    <Space layout style={{ marginBotton: 16 }} >
+                                                        <div className='pilihan-jawaban'>
+                                                            <Radio.Group className='pilihan-jawaban' size="medium" buttonStyle='outline'>
+                                                                <Space direction="horizontal" style={{marginTop:4, padding:0}}>
+                                                                <Radio value="a">{isiSoal.pilihanA}</Radio>
+                                                                <Radio value="b">{isiSoal.pilihanB}</Radio>
+                                                                <Radio value="c">{isiSoal.pilihanC}</Radio>
+                                                                <Radio value="d">{isiSoal.pilihanD}</Radio>
+                                                                </Space>
+                                                            </Radio.Group>
+                                                        </div>
+                                                    </Space>
                                                 </Form.Item>
                                             )
                                         })
