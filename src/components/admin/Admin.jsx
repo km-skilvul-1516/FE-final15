@@ -15,8 +15,7 @@ const Admin = () => {
             })
     },[])
     console.log('ini dari data', APIData)
-
-    // console.log(dataSource)
+    
     const [dataSource, setDataSource]=  useState();
 
     const columns = [
@@ -45,16 +44,6 @@ const Admin = () => {
             dataIndex:"Penerbit",
             key:"Penerbit"
         },
-        {
-            title:"Actions",
-            key:"actions",
-            render:(record) => {
-                return <>
-                    <EditOutlined />
-                    <DeleteOutlined style={{color: "red" , marginLeft: 15}} />
-                </>
-            }
-        },
     ];
     
     return (
@@ -68,7 +57,6 @@ const Admin = () => {
                     dataSource={APIData}
                     style={{marginTop: 50, textAlign: "center"}}
                     size="large"
-                   
                     >
 
                     </Table>

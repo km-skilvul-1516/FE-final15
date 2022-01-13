@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+* {
+    font-family: 'Sora', sans-serif;
+}
+
 
 Card {
     text-align: center;
     display: flex;
+    border: 10px solid red;
 }
 
 .pembungkus-kartu {
@@ -26,7 +33,6 @@ Card {
     font-size: 15px;
     font-family:'Inter';
     background-color: #FFCD4F;
-    box-shadow: 5px 10px 30px rgba(46, 36, 36, 0.336);
     border-radius: 5px;
     padding: 7px;
 	color:#ffffff;
