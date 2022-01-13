@@ -24,7 +24,6 @@ function Konten() {
             })
     },[])
     console.log(APIData)
-
     return (
         <div>
             <Navbar/>
@@ -49,20 +48,22 @@ function Konten() {
                         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                                 <Col className="gutter-row" span={6}>
                                     <Card
-                                        style={{ width: 300 }}
+                                        style={{ width: 300, border: "3px solid grey", height: 350}}
+
                                         >
                                         <Meta
                                             // {...post.Judul}
                                             // {post.Author}
                                         />
+                                            <h4>{post.Penerbit}</h4>
+                                            <p>-------------------</p>
                                             <h5>{post.Judul}</h5>
                                             <p>{post.Author}</p>
-                                            <p>{post.Tanggal}</p>
                                             {post.Tag}
-                                            {post.Penerbit}
+                                            
                                             <Link to='/deskkonten'>
                                             <div className='but-sel'>
-                                                <a href='#' className='but-sel-1'>Selengkapnya</a>
+                                                <button className='but-sel-1'>Selengkapnya</button>
                                             </div>
                                             </Link>
                                     </Card>
