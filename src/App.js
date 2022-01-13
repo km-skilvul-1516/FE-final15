@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import Admin from './components/admin/Admin';
 import Artikel from './components/admin/Artikel';
 import Konten from './components/Konten/Konten';
+import DeskKonten from './components/Konten/DeskKonten';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/admin" component={Admin}/>
         <Route exact path="/artikel" component={Artikel}/>
         <Route exact path="/konten" component={Konten}/>
+        <Route exact path="/deskkonten" component={DeskKonten}/>
       </div>
 
     </Router>
