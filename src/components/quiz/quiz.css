@@ -1,15 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-* {
+*, body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     outline: none;
-}
-
-body,
-input {
-    font-family: "Poppins", sans-serif, "";
+    font-family: 'Inter', sans-serif;
 }
 
 .card-start-container {
@@ -66,24 +62,37 @@ input {
     background-color: lightgray;
 }
 
-.quiz-card {
+.quiz-con {
     text-align: center;
     margin-bottom: 3em;
     padding: 2em;
     background-color: #5EBFCF;
 }
 
-.quiz-title {
+.quiz-title h2 {
     margin-bottom: 1em;
+    font-weight: bold;
+    font-size: xx-large;
+
 }
 
-.card {
+.form-card {
     margin: auto;
     border: none;
     padding: 2em;
     height: auto;
-    width: 1040px;
+    width: 1020px;
     box-sizing: border-box;
+    border-radius: 24px;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: whitesmoke;
+    font-family: 'inter' !important;
+}
+
+.perintah {
+    text-align: left;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .card-soal {
@@ -91,12 +100,15 @@ input {
     text-align: left;
     justify-content: left;
     border: none;
+    display: flex;
+    font-family: 'Inter' !important;
 }
 
 .pilihan-jawaban {
     /* background-color: gray; */
     background-color: transparent;
     margin-bottom: 0.5em;
+    margin-top: 0.5em;
     cursor: pointer;
     display: flex;
     justify-content: left;
@@ -123,7 +135,7 @@ input {
 
 .card-result {
     width: 520px;
-    height: 460px;
+    height: 486px;
     overflow: hidden;
     box-shadow: 0px 0px 15px -5px;
     transition: 0, 3s;
@@ -131,11 +143,12 @@ input {
     border-radius: 10px;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 120px;
     background-color: #5EBFCF;
     padding: 1em;
     box-sizing: border-box;
     text-align: center;
+    font-family: 'inter' !important;
 }
 
 .result-box table {
@@ -151,8 +164,11 @@ input {
     text-align: left;
 }
 
-.result-desc tr {
+.result-desc {
     text-align: justify;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .btn-layanan, .btn-konten {
@@ -166,27 +182,44 @@ input {
 
 @media (max-width: 600px) {
     .card-result {
-        height: 460px;
+        height: 480px;
+        width: 380px;
+    }
+
+    .form-card {
+        margin: auto;
+        height: fit-content;
         width: 420px;
     }
 
-    .card {
+    .quiz-con {
         margin: auto;
-    }
-
-    .quiz-card {
-        margin: auto;
+        height: auto;
+        width: fit-content;
     }
 
     .pilihan-jawaban {
         margin-top: 1em;
         padding: auto;
         background-color: transparent;
+        height: fit-content;
+        width: fit-content;
     }
 
-    .card-soal {
+    .quiz-card {
         margin: auto;
-        background-color: transparent;
+        height: fit-content;
+        width: 420px;
+    }
+
+    .table-result {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .card-start-container {
+        width: fit-content;
+        height: fit-content;
     }
 
 

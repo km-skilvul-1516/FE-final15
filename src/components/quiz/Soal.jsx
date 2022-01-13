@@ -30,48 +30,56 @@ export const Soal = () => {
 
     return (
         <div>
-            <div className='quiz-card'>
+            <div className='quiz-con'>
                 <div className='quiz-title'>
                     <h2> Tes Tingkat Keparahan Stress </h2>
                 </div>
-                <div className='card'>
-                    <Form name='quiz' onFinish={submit} onValuesChange={logger}>
-                    {
-                        !soal ?
-                        null
-                        :
-                        soal.map((soal) => {
-                        return (
-                            soal.isiQuiz.map((isiSoal, index) => {
-                                return (
-                                    <div className='card-soal'>
-                                        <Form.Item name={"soal" + index} label={isiSoal.soal}>
-                                        <div className='pilihan-jawaban'>
-                                        <Radio.Group size="small" buttonStyle='outline'>
-                                            <Space direction="horizontal">
-                                            <Radio value="a">{isiSoal.pilihanA}</Radio>
-                                            <Radio value="b">{isiSoal.pilihanB}</Radio>
-                                            <Radio value="c">{isiSoal.pilihanC}</Radio>
-                                            <Radio value="d">{isiSoal.pilihanD}</Radio>
-                                            </Space>
-                                        </Radio.Group>
-                                        </div>
-                                    </Form.Item>
-                                </div>
-                                )
-                            })
-                        )
-                    }
-                 )}
-                <br />
-                <div className='btn-submit'>
-                    <Form.Item>
-                            <Button type='primary' htmlType='submit' className='btn-kirim'>
-                                Kirim jawaban
-                            </Button>
-                    </Form.Item>
-                </div>
-                </Form>
+                <div className='quiz-card'>
+                    <div className='form-card'>
+                        <div className='perintah'>
+                            <p>
+                                Jawablah seluruh soal dibawah ini sesuai dengan kondisi yang sedang kamu alami,
+                                lalu kirim jawaban untuk melihat hasilnya!
+                            </p>
+                            </div>
+                        <div className='card-soal'>
+                            <Form name='form' onFinish={submit} onValuesChange={logger}>
+                                {
+                                    !soal ?
+                                    null
+                                    :
+                                    soal.map((soal) => {
+                                    return (
+                                        soal.isiQuiz.map((isiSoal, index) => {
+                                            return (
+                                                <Form.Item name={"soal" + index} label={isiSoal.soal}>
+                                                    <div className='pilihan-jawaban'>
+                                                    <Radio.Group size="medium" buttonStyle='outline'>
+                                                        <Space direction="horizontal">
+                                                        <Radio value="a">{isiSoal.pilihanA}</Radio>
+                                                        <Radio value="b">{isiSoal.pilihanB}</Radio>
+                                                        <Radio value="c">{isiSoal.pilihanC}</Radio>
+                                                        <Radio value="d">{isiSoal.pilihanD}</Radio>
+                                                        </Space>
+                                                    </Radio.Group>
+                                                </div>
+                                                </Form.Item>
+                                            )
+                                        })
+                                    )
+                                }
+                            )}
+                    <br />
+                    <div className='btn-submit'>
+                        <Form.Item>
+                                <Button type='primary' htmlType='submit' className='btn-kirim'>
+                                    Kirim 
+                                </Button>
+                        </Form.Item>
+                    </div>
+                        </Form>
+                        </div>
+                    </div>
             </div>
          </div>       
     </div>
