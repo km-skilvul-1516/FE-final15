@@ -71,7 +71,7 @@ export const QuizResult = () => {
                     </table>
                 </div>
                 <div className='btn-result'>
-                    <Link to='/admin'>
+                    <Link to='/konten'>
                     <button className='btn-konten'>
                         Lihat konten
                     </button>

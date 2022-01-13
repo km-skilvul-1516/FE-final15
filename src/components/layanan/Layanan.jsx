@@ -4,7 +4,7 @@ import axios from 'axios';
 import Navbar from '../Navbar'
 import Logo1 from '../../images/logo1.png';
 import Lypsikolog from './LayananPsikolog';
-
+import {Link} from 'react-router-dom'
 function Layanan() {
     const [APIData, setAPIData] = useState([]);
     useEffect(() => {
@@ -48,10 +48,13 @@ function Layanan() {
                                 <h3>Rp.{post.hargaLayanan}</h3>
                                 <br/>
                                 <br/>
-
+                               
+                   
+                    <Link to='/layananA'>
                                 <button className='btn-konten'>
                         Daftar Paket
                     </button>
+                    </Link>
                             </div>
                         </div>
                     </div>
