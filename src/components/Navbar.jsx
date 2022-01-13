@@ -1,8 +1,11 @@
 import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import logo from '../images/logo1.png';
+let ls = window.localStorage
 
 function Navbar() {
+
+    let token = ls.getItem("token")
 
     const[nav,setnav] = useState(false);
 
