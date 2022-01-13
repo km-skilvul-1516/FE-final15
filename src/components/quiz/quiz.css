@@ -184,7 +184,7 @@
     .form-card {
         height: fit-content;
         width: 420px;
-        /* background-color: lightcyan; */
+        background-color: lightcyan;
         padding: 16px;
     }
 
