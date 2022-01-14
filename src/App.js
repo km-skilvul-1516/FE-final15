@@ -2,7 +2,7 @@ import './App.css';
 import Login from './components/login';
 import Register from './components/register'
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import Landingpage from './components/Landingpage'
+import Landingpage from './components/landingpage'
 import StartQuiz from './components/quiz/StartQuiz';
 import Soal from './components/quiz/Soal'
 import Layanan from './components/layanan/Layanan'
