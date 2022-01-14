@@ -32,7 +32,8 @@ export const post_register = (data, history) => {
         // console.log(data)
         axios 
             .post("https://teslah-final.herokuapp.com/user/register", data)
-            .then((res)=> {
+            .then((res) => {
+                window.location.href='/login'
                 // if (res.data.msg !== "salah password") {}
                 console.log(res)
             })
