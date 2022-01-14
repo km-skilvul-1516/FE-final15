@@ -22,7 +22,7 @@ export const post_login = (data, history) => {
                 }
             })
             .catch((error)=> {
-                alert("salah password")
+                alert("salah password,silahkan coba lagi")
             })
     }
 }
