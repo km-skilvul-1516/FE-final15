@@ -10,7 +10,7 @@ import Footer from './Footer';
 import About from './About'
 function Landingpage() {
         return (
-          <div>
+          <div classname='utama'>
             <Navbar/>
             <Header/>
             <Feature/>
