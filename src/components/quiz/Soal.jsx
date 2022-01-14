@@ -53,7 +53,6 @@ export const Soal = () => {
                                         soal.isiQuiz.map((isiSoal, index) => {
                                             return (
                                                 <Form.Item name={"soal" + index} label={isiSoal.soal} layout='vertical'>
-                                                    <Space layout style={{ marginBotton: 16 }} >
                                                         <div className='pilihan-jawaban'>
                                                             <Radio.Group className='pilihan-jawaban' size="medium" buttonStyle='outline'>
                                                                 <Space direction="horizontal" style={{marginTop:4, padding:0}}>
@@ -64,7 +63,7 @@ export const Soal = () => {
                                                                 </Space>
                                                             </Radio.Group>
                                                         </div>
-                                                    </Space>
+                                                    
                                                 </Form.Item>
                                             )
                                         })
